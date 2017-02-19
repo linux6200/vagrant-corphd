@@ -8,7 +8,7 @@ if [ "$all_simulators" = true ]; then
   # Second, LDAP Simulator
   # ---------------------------------
   if [ ! -e /vagrant/simulators/ldapsvc-1.0.0.zip ]; then
-     wget 'https://build.coprhd.org/jenkins/userContent/simulators/ldap-sim/1.0.0.0.7/ldap-simulators-1.0.0.0.7-bin.zip' -O /vagrant/simulators/ldapsvc-1.0.0.zip
+     wget 'https://coprhd.atlassian.net/wiki/download/attachments/6652057/ldapsvc-1.0.0.zip?version=2&modificationDate=1453406325338&api=v2' -O /vagrant/simulators/ldapsvc-1.0.0.zip
   fi
 
   unzip /vagrant/simulators/ldapsvc-1.0.0.zip -d /simulator
