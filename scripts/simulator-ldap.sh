@@ -15,7 +15,7 @@ if [ "$all_simulators" = true ]; then
   cd /simulator/ldapsvc-1.0.0/bin/
   echo "Starting LDAP Simulator Service"
   ./ldapsvc &
-  sleep 5
+  sleep 30
   curl -X POST -H "Content-Type: application/json" -d "{\"listener_name\": \"COPRHDLDAPSanity\"}" http://127.0.0.1:8082/ldap-service/start
 
 
