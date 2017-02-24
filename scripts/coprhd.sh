@@ -55,3 +55,9 @@ curl -X POST -H "Content-Type: application/json" -d "{\"name\":\"L1B_VA_VMAX_222
 python /vagrant/scripts/coprhd_register.py
 
 
+####################################
+##   Support NetApp 
+####################################
+cp /vagrant/simulators/manageontap*.jar /opt/storageos/lib/.
+chown storageos:storageos /opt/storageos/lib/manageontap*.jar
+

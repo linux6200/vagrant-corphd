@@ -39,6 +39,20 @@ def login():
 	print(buf.getvalue())
 	print(header_str.getvalue());
 
+def registerLDAPProvider():
+	buf = StringIO.StringIO()
+
+	data = ' { \"server_urls\": [ \"ldap://192.168.33.10\" ], \"domains\": [ \"viprsanity.com\" ], \"mode\": \"ldap\", \"name\": \"LDAP Simulator\", \"description\": \"LDAP Simulator desc\", \"disable\": \"false\", \"autoreg_coprhd_import_osprojects\": \"false\", \"manager_dn\": \"cn=manager,dc=viprsanity,dc=com\", \"manager_password\": \"secret\", \"search_base\": \"dc=viprsanity,dc=com\", \"search_filter\": \"uid=%U\", \"search_scope\": \"SUBTREE\", \"group_attribute\": \"CN\", \"max_page_size\": \"\", \"validate_certificates\": \"\" }' 
+	print data
+	url=baseurl+"vdc/admin/authnproviders"
+	c.setopt(pycurl.URL, url) 
+	c.setopt(pycurl.CUSTOMREQUEST,"POST") 
+        c.setopt(pycurl.HTTPHEADER, ['Content-Type: application/json', 'Accept: application/json'])
+        c.setopt(pycurl.POSTFIELDS,data)
+	c.setopt(pycurl.WRITEFUNCTION, buf.write)
+	c.perform();
+
+
 def createBlockVirtualPool(name,numofpath,prov_type,varrays):
 	buf = StringIO.StringIO()
 	data = '{ "name": "'+name+'", "description": "'+name+' desc", "num_paths":'+numofpath+', "protocols": [ "FC" ], "provisioning_type":"'+prov_type+'", "use_matched_pools": "true", "varrays": [ '+varrays+' ] }'
@@ -142,7 +156,8 @@ createBlockVirtualPool('VP_VMAX_TL3_2HBA','2','Thick',varray_names);
 createBlockVirtualPool('VP_VMAX_TL3_4HBA','4','Thin',varray_names);
     
     
-
+## Register LDAP Provider
+registerLDAPProvider();
 
 
 

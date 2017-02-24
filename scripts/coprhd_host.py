@@ -25,7 +25,7 @@ def login():
 	header_str = StringIO.StringIO()
 	url=baseurl+"login?using-cookies=true"
 	c.setopt(pycurl.URL, url) 
-	c.setopt(pycurl.USERPWD, "root:P@ssw0rd")
+	c.setopt(pycurl.USERPWD, "root:ChangeMe")
 	c.setopt(pycurl.CUSTOMREQUEST,"GET") 
 	c.setopt(pycurl.WRITEFUNCTION, buf.write)
 	c.setopt(pycurl.HEADERFUNCTION,header_str.write)
