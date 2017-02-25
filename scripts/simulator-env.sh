@@ -16,3 +16,5 @@ sudo cat /etc/shadow|grep -v ^root >> /tmp/shadow.new
 sudo cp /tmp/shadow.new /etc/shadow
 
 
+hostname simulator
+

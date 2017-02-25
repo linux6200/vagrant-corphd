@@ -51,6 +51,7 @@ curl -X POST -H "Content-Type: application/json" -d "{\"name\":\"L1A_VA_VMAX_111
 curl -X POST -H "Content-Type: application/json" -d "{\"name\":\"L1B_VA_VMAX_2222\",\"auto_san_zoning\":\"true\"}" $COPRHD_IP/vdc/varrays -b ~/cookiefile -k
 
 
+sleep 60
 
 python /vagrant/scripts/coprhd_register.py
 
